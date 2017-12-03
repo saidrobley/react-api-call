@@ -20,9 +20,7 @@ class App extends Component {
                 // console.log(findresponse.data)
                 this.setState({
                     data:findresponse.articles,
-                 //   title:findresponse.description,
-                    //  data:findresponse.data,
-                    //  data:findresponse,
+
                 })
             })
 
@@ -38,20 +36,23 @@ class App extends Component {
 
 
                     this.state.data.map((dynamicData, key) =>
-                        <table className={"pretty-table"}>
-                            <tr>
-                                <th>Author</th>
-                                <th colSpan={"2"}>Title</th>
-                            </tr>
-                            <tr></tr>
-                            <tr>
-                                <td>Author: {dynamicData.author}</td>
-                                <td>Title: {dynamicData.title}</td>
+                        <div className={"item"}>
 
-                            </tr>
-                        </table>
+                            <div className={"subItem"}>
+                                <h3>{dynamicData.title}</h3><hr>{}</hr>
+                                <img src={dynamicData.urlToImage} alt=""/>
+                                {dynamicData.description}
+                                <a href={dynamicData.url}>read more</a>
 
+                                <h3><em>by {dynamicData.author}</em></h3>
+                                <h4>Published: {dynamicData.publishedAt}</h4>
+
+                            </div>
+
+
+                        </div>
                     )
+
                 }
             </div>
         )
